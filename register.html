@@ -21,7 +21,7 @@
                         <div class="inner-container clearfix">
                             <div class="logo-box">
                                 <div class="logo">
-                                    <a href="https://keralamegalottery.com/" title=""><img src="images/logo.png" alt="" /></a>
+                                    <a href="index.html" title=""><img src="images/logo.png" alt="" /></a>
                                 </div>
                             </div>
                             <div class="nav-outer clearfix">
@@ -29,7 +29,7 @@
                                 <nav class="main-menu navbar-expand-md navbar-light">
                                     <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                         <ul class="navigation clearfix">
-                                            <li class="current"><a href="https://keralamegalottery.com/">Home</a></li>
+                                            <li class="current"><a href="index.html">Home</a></li>
                                             <li><a href="about.html">About Us</a></li>
                                             <li><a href="payment-details.html">Payment Details</a></li>
                                             <li><a href="winner-list.html">Winner List</a></li>
@@ -43,7 +43,7 @@
                                 <div class="phone-box">
                                     <div class="subtitle">Need a Help? Call us</div>
                                     <div class="phone">
-                                        <a href="tel:18008331355"><span class="fas fa-headphones"></span> 18008331355</a>
+                                        <a href="tel:9034106135"><span class="fas fa-headphones"></span> 9034106135</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                         <div class="col-lg-8">
                             <div class="game-awards">
                                 <div class="auto-container">
-                                    <form method="post" id="tm_form1" action="#">
+                                    <form method="post" id="tm_form1" action="#" name="google-sheet">
                                         <div class="own-prize">
                                             <h4>
                                                 Please Enter your Registered Mobile Number and <br />
@@ -115,12 +115,12 @@
             <div class="auto-container">
                 <div class="inner">
                     <!--Logo-->
-                    <div class="footer-logo"><a href="https://keralamegalottery.com/" title=""><img src="images/footer-logo.png" alt="" title=""></a></div>
+                    <div class="footer-logo"><a href="index.html" title=""><img src="images/footer-logo.png" alt="" title=""></a></div>
 
                     <!--Footer Nav-->
                     <nav class="footer-nav">
                         <ul class="clearfix">
-                            <li><a href="https://keralamegalottery.com/">Home</a></li>
+                            <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About </a></li>
                             <li><a href="payment-details.html">Payment Detials</a></li>
                             <li><a href="winner-list.html">Winner List</a></li>
@@ -183,6 +183,21 @@ $(document).ready(function(){
         $('.fixedenter').css('display','');
     });
 </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzug6Gtt4RsewLJV6QwLeIjZgi9Gb4f1s4H3QudppYWakUNyzpmdtHzAYfYdzRHuKSP/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("You are successfully registered for lottery"))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>
